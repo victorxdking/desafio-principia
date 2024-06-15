@@ -1,4 +1,3 @@
-```markdown
 <h1 align='center'>Desafio de Processamento de Dados - Principia 🚀</h1>
 
 <p align="center">
