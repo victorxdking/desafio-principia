@@ -1,3 +1,8 @@
+Para melhorar a legibilidade e a compreensão do seu documento, vamos agrupar as seções de padronização e validação de dados e adicionar um breve parágrafo explicativo antes de cada bloco de código. Isso ajudará a orientar o leitor através do processo e reduzirá a poluição visual.
+
+Aqui está uma sugestão de como você pode reformatar essa seção:
+
+```markdown
 <h1 align='center'>Desafio de Processamento de Dados - Principia 🚀</h1>
 
 <p align="center">
@@ -34,6 +39,8 @@ A solução foi implementada em um script Python (`processamento.py`) que realiz
 
 ### 📚 Importação de Bibliotecas
 
+Importei as bibliotecas necessárias para manipulação de dados, validação e interação com APIs.
+
 <details>
   <summary>Código de importação de bibliotecas</summary>
 
@@ -46,9 +53,9 @@ import json
 ```
 </details>
 
-### 🔧 Funções de Padronização e Validação
+### 🔧 Padronização e Limpeza de Dados
 
-- **Padronização e limpeza de dados:** Converte texto para maiúsculas, remove espaços em branco, formata CPF e data de nascimento, remove caracteres não numéricos de telefones, padroniza o nome da faculdade e elimina duplicatas.
+Esta função converte textos para maiúsculas, remove espaços em branco, formata CPF e data de nascimento, remove caracteres não numéricos de telefones, padroniza o nome da faculdade e elimina duplicatas.
 
 <details>
   <summary>Código de padronização e limpeza de dados</summary>
@@ -69,6 +76,10 @@ def padronizar_e_limpar_dados(df):
     return df
 ```
 </details>
+
+### 🔍 Funções de Validação
+
+A seguir, estão as funções de validação implementadas para cada um dos campos específicos.
 
 - **Validação do CPF:** Verifica se o CPF é válido usando dígitos verificadores.
 
@@ -149,7 +160,7 @@ def validar_nome_completo(nome):
 ```python
 def validar_cep(cep):
     response = requests.get(f'https://viacep.com.br/ws/{cep}/json/')
-    if response.status_code == 200:
+    if response.status_code == 200):
         data = response.json()
         if data.get('erro'):
             return False, {}
@@ -194,9 +205,9 @@ def processar_dados():
     for index, row in df_limpo.iterrows():
         motivos_invalidos = []
         
-        if not validar_cpf(row['CPF']):
+        if não validar_cpf(row['CPF']):
             motivos_invalidos.append("CPF inválido")
-        if not validar_nome_completo(row['NOME']):
+        if não validar_nome_completo(row['NOME']):
             motivos_invalidos.append("Nome incompleto")
         if não validar_data_nascimento(row['Data de Nascimento']):
             motivos_invalidos.append("Data de nascimento inválida ou idade menor que 18")
@@ -219,14 +230,15 @@ def processar_dados():
 
     df_clientes_validos = pd.DataFrame(clientes_validos)
     df_clientes_invalidos = pd.DataFrame(clientes_invalidos)
-    df_clientes_invalidos.to_excel('clientes_invalidos.xlsx', index=False)
+    df_clientes_invalidos.to_excel('clientes```markdown
+invalidos.xlsx', index=False)
     print("Validação concluída. Arquivo 'clientes_invalidos.xlsx' foi gerado.")
 
     # Comparar com o sistema
     sistema_path = 'sistema.xlsx'
     df_sistema = pd.read_excel(sistema_path)
     df_clientes_validos['CPF'] = df_clientes_validos['CPF'].apply(lambda x: re.sub(r'\D', '', str(x)).zfill(11))
-    df_sistema['cpf'] = df_sistema['cpf'].apply(lambda x: refill(11))
+    df_sistema['cpf'] = df_sistema['cpf'].apply(lambda x: re.sub(r'\D', '', str(x)).zfill(11))
     df_clientes_validos['TIPO'] = 'I'
     df_clientes_validos.loc[df_clientes_validos['CPF'].isin(df_sistema['cpf']), 'TIPO'] = 'A'
     print("Comparação concluída.")
