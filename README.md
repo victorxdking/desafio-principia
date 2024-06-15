@@ -51,10 +51,10 @@ A solução foi implementada em um script Python `processamento.py` que realiza 
 
 ### 📚 Importação de Bibliotecas
 
+Importei as bibliotecas necessárias para manipulação de dados, validação e interação com APIs.
 
 <details>
-
-  <summary>Importei as bibliotecas necessárias para manipulação de dados, validação e interação com APIs.</summary>
+<summary>Libs</summary>
 
 ```python
 import pandas as pd
@@ -65,13 +65,14 @@ import json
 ```
 </details>
 
-
 <br>
 
 ### 🔧 Padronização e Limpeza de Dados
 
+Esta função converte textos para maiúsculas, remove espaços em branco, formata CPF e data de nascimento, remove caracteres não numéricos de telefones, padroniza o nome da faculdade e elimina duplicatas.
+
 <details>
-  <summary>Esta função converte textos para maiúsculas, remove espaços em branco, formata CPF e data de nascimento, remove caracteres não numéricos de telefones, padroniza o nome da faculdade e elimina duplicatas.</summary>
+  <summary>Código da função</summary>
 
 ```python
 def padronizar_e_limpar_dados(df):
@@ -206,7 +207,7 @@ def validar_endereco(data, endereco, bairro, cidade, estado):
 A função principal carrega os dados, padroniza-os, valida cada registro e exporta os resultados.
 
 <details>
-  <summary>Código da função principal de processamento</summary>
+  <summary>Código da função</summary>
 
 ```python
 def processar_dados():
