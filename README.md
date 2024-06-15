@@ -12,6 +12,7 @@ O objetivo do desafio foi validar e processar dados de clientes a partir de um a
 
 O desafio consistiu nas seguintes etapas:
 1. **Validação dos dados de clientes:**
+
    - O CPF do cliente é válido?
    - O cliente possui nome completo?
    - A data de nascimento é válida?
@@ -20,26 +21,38 @@ O desafio consistiu nas seguintes etapas:
    - O telefone informado está no formato certo?
    - Validar o CEP utilizando a API: [ViaCEP](https://viacep.com.br/)
    - Validar o endereço informado utilizando a API: [ViaCEP](https://viacep.com.br/)
-2. **Exportação de dados inválidos para um arquivo Excel (`clientes_invalidos.xlsx`) com o motivo da invalidação.**
-3. **Comparação de clientes válidos com um arquivo de sistema (`sistema.xlsx`).**
+
+<br>
+
+2. **Exportação de dados inválidos para um arquivo Excel:**
+
+    - `clientes_invalidos.xlsx` com o motivo da invalidação.
+
+<br>
+
+3. **Comparação de clientes válidos com um arquivo de sistema `sistema.xlsx`.**
+
    - Se o cliente já tiver cadastro, ele receberá o tipo `A` de atualização.
    - Se o cliente não tiver cadastro, ele receberá o tipo `I` de inserção.
-4. **Exportação de clientes válidos para um arquivo JSON (`clientes_para_subir.json`).**
+
+<br>
+
+4. **Exportação de clientes válidos para um arquivo JSON `clientes_para_subir.json`.**
 
 <br>
 
 ## 🛠 Implementação
 
-A solução foi implementada em um script Python (`processamento.py`) que realiza as seguintes etapas:
+A solução foi implementada em um script Python `processamento.py` que realiza as seguintes etapas:
 
 <br>
 
 ### 📚 Importação de Bibliotecas
 
-Importei as bibliotecas necessárias para manipulação de dados, validação e interação com APIs.
 
 <details>
-  <summary>Código de importação de bibliotecas</summary>
+Importei as bibliotecas necessárias para manipulação de dados, validação e interação com APIs.
+  <summary></summary>
 
 ```python
 import pandas as pd
@@ -58,7 +71,7 @@ import json
 Esta função converte textos para maiúsculas, remove espaços em branco, formata CPF e data de nascimento, remove caracteres não numéricos de telefones, padroniza o nome da faculdade e elimina duplicatas.
 
 <details>
-  <summary>Código de padronização e limpeza de dados</summary>
+  <summary></summary>
 
 ```python
 def padronizar_e_limpar_dados(df):
