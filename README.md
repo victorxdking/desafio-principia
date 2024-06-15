@@ -12,7 +12,7 @@ O objetivo do desafio foi validar e processar dados de clientes a partir de um a
 
 O desafio consistiu nas seguintes etapas:
 
-**1. Validação dos dados de clientes:**
+**1. Validação dos dados de clientes**
 
 - O CPF do cliente é válido?
 - O cliente possui nome completo?
@@ -25,20 +25,20 @@ O desafio consistiu nas seguintes etapas:
 
 <br>
 
-**2. Exportação de dados inválidos para um arquivo Excel:**
+**2. Exportação de dados inválidos para um arquivo Excel**
 
 - `clientes_invalidos.xlsx` com o motivo da invalidação.
 
 <br>
 
-**3. Comparação de clientes válidos com um arquivo de sistema `sistema.xlsx`:**
+**3. Comparação de clientes válidos com um arquivo de sistema `sistema.xlsx`**
 
 - Se o cliente já tiver cadastro, ele receberá o tipo `A` de atualização.
 - Se o cliente não tiver cadastro, ele receberá o tipo `I` de inserção.
 
 <br>
 
-**4. Exportação de clientes válidos para um arquivo JSON:**
+**4. Exportação de clientes válidos para um arquivo JSON**
 
 - `clientes_para_subir.json`.
 
