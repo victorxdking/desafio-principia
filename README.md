@@ -1,8 +1,3 @@
-Para melhorar a legibilidade e a compreensão do seu documento, vamos agrupar as seções de padronização e validação de dados e adicionar um breve parágrafo explicativo antes de cada bloco de código. Isso ajudará a orientar o leitor através do processo e reduzirá a poluição visual.
-
-Aqui está uma sugestão de como você pode reformatar essa seção:
-
-```markdown
 <h1 align='center'>Desafio de Processamento de Dados - Principia 🚀</h1>
 
 <p align="center">
