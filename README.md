@@ -355,12 +355,12 @@ Para executar o script `processamento.py`, siga os passos abaixo:
 
 **1. Pré-requisitos**:
 
-   - Tenha o Python instalado na sua máquina.
-   - Instale as bibliotecas necessárias utilizando `pip`:
+- Tenha o Python instalado na sua máquina.
+- Instale as bibliotecas necessárias utilizando `pip`:
 
-     ```bash
-     pip install pandas requests openpyxl
-     ```
+```bash
+pip install pandas requests openpyxl
+```
 
 **2. Arquivos Necessários**:
 
@@ -370,9 +370,9 @@ Certifique-se de ter os arquivos `dados.xlsx` e `sistema.xlsx` na mesma pasta qu
 
 No terminal, navegue até a pasta onde o script está localizado e execute o comando:
 
-     ```bash
-     python processamento.py
-     ```
+```bash
+python processamento.py
+```
 
 **4. Resultados**:
    
