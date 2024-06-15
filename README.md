@@ -51,8 +51,8 @@ A solução foi implementada em um script Python `processamento.py` que realiza 
 
 
 <details>
-Importei as bibliotecas necessárias para manipulação de dados, validação e interação com APIs.
-  <summary></summary>
+
+  <summary>Importei as bibliotecas necessárias para manipulação de dados, validação e interação com APIs.</summary>
 
 ```python
 import pandas as pd
@@ -68,10 +68,8 @@ import json
 
 ### 🔧 Padronização e Limpeza de Dados
 
-Esta função converte textos para maiúsculas, remove espaços em branco, formata CPF e data de nascimento, remove caracteres não numéricos de telefones, padroniza o nome da faculdade e elimina duplicatas.
-
 <details>
-  <summary></summary>
+  <summary>Esta função converte textos para maiúsculas, remove espaços em branco, formata CPF e data de nascimento, remove caracteres não numéricos de telefones, padroniza o nome da faculdade e elimina duplicatas.</summary>
 
 ```python
 def padronizar_e_limpar_dados(df):
