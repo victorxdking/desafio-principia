@@ -78,9 +78,10 @@ def padronizar_e_limpar_dados(df):
 
 A seguir, estão as funções de validação implementadas para cada um dos campos específicos.
 
-**Validação do CPF:** Verifica se o CPF é válido usando dígitos verificadores.
+**Validação do CPF:** 
 
 <details>
+<summary>Verifica se o CPF é válido usando dígitos verificadores.</summary>
 
 ```python
 def validar_cpf(cpf):
@@ -98,9 +99,10 @@ def validar_cpf(cpf):
 ```
 </details>
 
-**Validação de e-mail:** Verifica se o e-mail está no formato correto usando expressões regulares.
+**Validação de e-mail:** 
 
 <details>
+<summary>Verifica se o e-mail está no formato correto usando expressões regulares.</summary>
 
 ```python
 def validar_email(email):
@@ -109,9 +111,10 @@ def validar_email(email):
 ```
 </details>
 
-**Validação de telefone:** Verifica se o telefone está no formato correto (10 ou 11 dígitos).
+**Validação de telefone:**
 
 <details>
+<summary> Verifica se o telefone está no formato correto (10 ou 11 dígitos).</summary>
 
 ```python
 def validar_telefone(telefone):
@@ -119,7 +122,9 @@ def validar_telefone(telefone):
 ```
 </details>
 
-**Validação de data de nascimento e idade:** Verifica se a data é válida e se a pessoa tem mais de 17 anos.
+**Validação de data de nascimento e idade:** 
+<summary>Verifica se a data é válida e se a pessoa tem mais de 17 anos.</summary>
+
 
 <details>
 
@@ -134,7 +139,8 @@ def validar_data_nascimento(data_nascimento):
 ```
 </details>
 
-**Validação de nome completo:** Verifica se o nome contém pelo menos duas palavras.
+**Validação de nome completo:** 
+<summary>Verifica se o nome contém pelo menos duas palavras.</summary>
 
 <details>
 
@@ -144,7 +150,9 @@ def validar_nome_completo(nome):
 ```
 </details>
 
-**Validação de CEP utilizando a API ViaCEP:** Verifica se o CEP é válido e retorna os dados do endereço.
+**Validação de CEP com API ViaCEP:** 
+<summary>Verifica se o CEP é válido e retorna os dados do endereço.</summary>
+
 
 <details>
 
@@ -160,7 +168,9 @@ def validar_cep(cep):
 ```
 </details>
 
-**Validação de endereço utilizando os dados da API ViaCEP:** Verifica se o endereço corresponde ao CEP fornecido.
+**Validação de endereço com API ViaCEP:** 
+<summary>Verifica se o endereço corresponde ao CEP fornecido.</summary>
+
 
 <details>
 
