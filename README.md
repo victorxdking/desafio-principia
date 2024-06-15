@@ -31,14 +31,14 @@ O desafio consistiu nas seguintes etapas:
 
 <br>
 
-**3. Comparação de clientes válidos com um arquivo de sistema `sistema.xlsx`.**
+**3. Comparação de clientes válidos com um arquivo de sistema `sistema.xlsx`:**
 
 - Se o cliente já tiver cadastro, ele receberá o tipo `A` de atualização.
 - Se o cliente não tiver cadastro, ele receberá o tipo `I` de inserção.
 
 <br>
 
-**4. Exportação de clientes válidos: para um arquivo JSON.**
+**4. Exportação de clientes válidos para um arquivo JSON:**
 
 - `clientes_para_subir.json`.
 
