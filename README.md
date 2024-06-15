@@ -170,7 +170,7 @@ def validar_nome_completo(nome):
 
 
 <details>
-<summary>Validação de CEP com API ViaCEP</summary>
+<summary>Validação de CEP com a API ViaCEP</summary>
 
 ```python
 # Verifica se o CEP é válido e retorna os dados do endereço.
@@ -187,7 +187,7 @@ def validar_cep(cep):
 
 
 <details>
-<summary>Validação de endereço com API ViaCEP</summary>
+<summary>Validação de endereço com a API ViaCEP</summary>
 
 ```python
 # Verifica se o endereço corresponde ao CEP fornecido.
