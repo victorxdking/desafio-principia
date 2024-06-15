@@ -76,6 +76,7 @@ Esta função converte textos para maiúsculas, remove espaços em branco, forma
   <summary>Código da função</summary>
 
 ```python
+# Função para padronizar e limpar os dados
 def padronizar_e_limpar_dados(df):
     df['NOME'] = df['NOME'].str.upper().str.strip()
     df['Endereço'] = df['Endereço'].str.upper().str.strip()
