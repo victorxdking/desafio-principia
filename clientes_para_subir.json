@@ -1,0 +1,563 @@
+[
+    {
+        "id": "ufba-74686320909",
+        "agrupador": "ufba",
+        "tipoPessoa": "FISICA",
+        "nome": "BENEDITA RAIMUNDA LORENA REZENDE",
+        "cpf": "74686320909",
+        "dataNascimento": "2001-02-14",
+        "tipo": "I",
+        "enderecos": [
+            {
+                "cep": "87309-710",
+                "logradouro": "RUA NELSON BEHRENS",
+                "bairro": "JARDIM SILVANA",
+                "cidade": "CAMPO MOURÃO",
+                "numero": "382",
+                "uf": "PR"
+            }
+        ],
+        "emails": [
+            {
+                "email": "benedita_raimunda_rezende@eletrotex.com.br"
+            }
+        ],
+        "telefones": [
+            {
+                "tipo": "CELULAR",
+                "ddd": "44",
+                "telefone": "999201842"
+            }
+        ],
+        "informacoesAdicionais": [
+            {
+                "campo": "cpf_aluno",
+                "linha": 4,
+                "coluna": 2,
+                "valor": "74686320909"
+            },
+            {
+                "campo": "registro_aluno",
+                "linha": 4,
+                "coluna": 12,
+                "valor": "720462"
+            },
+            {
+                "campo": "nome_aluno",
+                "linha": 4,
+                "coluna": 1,
+                "valor": "BENEDITA RAIMUNDA LORENA REZENDE"
+            }
+        ]
+    },
+    {
+        "id": "usp-91450681603",
+        "agrupador": "usp",
+        "tipoPessoa": "FISICA",
+        "nome": "STELLA ISABELLE DA CONCEIÇÃO",
+        "cpf": "91450681603",
+        "dataNascimento": "1994-03-10",
+        "tipo": "I",
+        "enderecos": [
+            {
+                "cep": "11095-906",
+                "logradouro": "RUA AUGUSTO SCARABOTO, S/N",
+                "bairro": "ALEMOA",
+                "cidade": "SANTOS",
+                "numero": "277",
+                "uf": "SP"
+            }
+        ],
+        "emails": [
+            {
+                "email": "stella-daconceicao92@arbitral.com"
+            }
+        ],
+        "telefones": [
+            {
+                "tipo": "CELULAR",
+                "ddd": "13",
+                "telefone": "982658773"
+            }
+        ],
+        "informacoesAdicionais": [
+            {
+                "campo": "cpf_aluno",
+                "linha": 6,
+                "coluna": 2,
+                "valor": "91450681603"
+            },
+            {
+                "campo": "registro_aluno",
+                "linha": 6,
+                "coluna": 12,
+                "valor": "882979"
+            },
+            {
+                "campo": "nome_aluno",
+                "linha": 6,
+                "coluna": 1,
+                "valor": "STELLA ISABELLE DA CONCEIÇÃO"
+            }
+        ]
+    },
+    {
+        "id": "unicamp-18055390193",
+        "agrupador": "unicamp",
+        "tipoPessoa": "FISICA",
+        "nome": "FÁBIO JULIO THEO RODRIGUES",
+        "cpf": "18055390193",
+        "dataNascimento": "1993-08-01",
+        "tipo": "I",
+        "enderecos": [
+            {
+                "cep": "59604-155",
+                "logradouro": "RUA CORONEL FAUSTO",
+                "bairro": "LAGOA DO MATO",
+                "cidade": "MOSSORÓ",
+                "numero": "137",
+                "uf": "RN"
+            }
+        ],
+        "emails": [
+            {
+                "email": "fabio_rodrigues@soupelli.com.br"
+            }
+        ],
+        "telefones": [
+            {
+                "tipo": "CELULAR",
+                "ddd": "84",
+                "telefone": "986066462"
+            }
+        ],
+        "informacoesAdicionais": [
+            {
+                "campo": "cpf_aluno",
+                "linha": 7,
+                "coluna": 2,
+                "valor": "18055390193"
+            },
+            {
+                "campo": "registro_aluno",
+                "linha": 7,
+                "coluna": 12,
+                "valor": "504901"
+            },
+            {
+                "campo": "nome_aluno",
+                "linha": 7,
+                "coluna": 1,
+                "valor": "FÁBIO JULIO THEO RODRIGUES"
+            }
+        ]
+    },
+    {
+        "id": "usp-54231533601",
+        "agrupador": "usp",
+        "tipoPessoa": "FISICA",
+        "nome": "RAQUEL FLÁVIA LUZIA CAMPOS",
+        "cpf": "54231533601",
+        "dataNascimento": "1988-02-08",
+        "tipo": "I",
+        "enderecos": [
+            {
+                "cep": "53650-180",
+                "logradouro": "RUA SUIÇA",
+                "bairro": "BELA VISTA",
+                "cidade": "IGARASSU",
+                "numero": "446",
+                "uf": "PE"
+            }
+        ],
+        "emails": [
+            {
+                "email": "raquel.flavia.campos@infortec.com.br"
+            }
+        ],
+        "telefones": [
+            {
+                "tipo": "CELULAR",
+                "ddd": "81",
+                "telefone": "997622419"
+            }
+        ],
+        "informacoesAdicionais": [
+            {
+                "campo": "cpf_aluno",
+                "linha": 8,
+                "coluna": 2,
+                "valor": "54231533601"
+            },
+            {
+                "campo": "registro_aluno",
+                "linha": 8,
+                "coluna": 12,
+                "valor": "657179"
+            },
+            {
+                "campo": "nome_aluno",
+                "linha": 8,
+                "coluna": 1,
+                "valor": "RAQUEL FLÁVIA LUZIA CAMPOS"
+            }
+        ]
+    },
+    {
+        "id": "ufpr-56862426745",
+        "agrupador": "ufpr",
+        "tipoPessoa": "FISICA",
+        "nome": "CÉSAR ROBERTO CASTRO",
+        "cpf": "56862426745",
+        "dataNascimento": "1988-01-09",
+        "tipo": "A",
+        "enderecos": [
+            {
+                "cep": "86191-470",
+                "logradouro": "RUA REINALDO RESQUETTI",
+                "bairro": "JARDIM BOA VISTA",
+                "cidade": "CAMBÉ",
+                "numero": "165",
+                "uf": "PR"
+            }
+        ],
+        "emails": [
+            {
+                "email": "cesar-castro95@vectrausinagem.com.br"
+            }
+        ],
+        "telefones": [
+            {
+                "tipo": "CELULAR",
+                "ddd": "43",
+                "telefone": "992311491"
+            }
+        ],
+        "informacoesAdicionais": [
+            {
+                "campo": "cpf_aluno",
+                "linha": 9,
+                "coluna": 2,
+                "valor": "56862426745"
+            },
+            {
+                "campo": "registro_aluno",
+                "linha": 9,
+                "coluna": 12,
+                "valor": "533964"
+            },
+            {
+                "campo": "nome_aluno",
+                "linha": 9,
+                "coluna": 1,
+                "valor": "CÉSAR ROBERTO CASTRO"
+            }
+        ]
+    },
+    {
+        "id": "ufrj-06692225183",
+        "agrupador": "ufrj",
+        "tipoPessoa": "FISICA",
+        "nome": "LUZIA FLÁVIA BERNARDES",
+        "cpf": "06692225183",
+        "dataNascimento": "1968-03-16",
+        "tipo": "I",
+        "enderecos": [
+            {
+                "cep": "49080-230",
+                "logradouro": "PRAÇA FRANKLIN DELANO ROOSEVELT",
+                "bairro": "AMÉRICA",
+                "cidade": "ARACAJU",
+                "numero": "789",
+                "uf": "SE"
+            }
+        ],
+        "emails": [
+            {
+                "email": "luziaflaviabernardes@gimail.com"
+            }
+        ],
+        "telefones": [
+            {
+                "tipo": "CELULAR",
+                "ddd": "79",
+                "telefone": "986651272"
+            }
+        ],
+        "informacoesAdicionais": [
+            {
+                "campo": "cpf_aluno",
+                "linha": 16,
+                "coluna": 2,
+                "valor": "06692225183"
+            },
+            {
+                "campo": "registro_aluno",
+                "linha": 16,
+                "coluna": 12,
+                "valor": "94708"
+            },
+            {
+                "campo": "nome_aluno",
+                "linha": 16,
+                "coluna": 1,
+                "valor": "LUZIA FLÁVIA BERNARDES"
+            }
+        ]
+    },
+    {
+        "id": "ufba-04892321249",
+        "agrupador": "ufba",
+        "tipoPessoa": "FISICA",
+        "nome": "ROSA NAIR DIAS",
+        "cpf": "04892321249",
+        "dataNascimento": "2004-05-07",
+        "tipo": "I",
+        "enderecos": [
+            {
+                "cep": "58030-070",
+                "logradouro": "AVENIDA SANTA CATARINA",
+                "bairro": "ESTADOS",
+                "cidade": "JOÃO PESSOA",
+                "numero": "690",
+                "uf": "PB"
+            }
+        ],
+        "emails": [
+            {
+                "email": "rosa-dias84@myself.com"
+            }
+        ],
+        "telefones": [
+            {
+                "tipo": "CELULAR",
+                "ddd": "83",
+                "telefone": "999648228"
+            }
+        ],
+        "informacoesAdicionais": [
+            {
+                "campo": "cpf_aluno",
+                "linha": 17,
+                "coluna": 2,
+                "valor": "04892321249"
+            },
+            {
+                "campo": "registro_aluno",
+                "linha": 17,
+                "coluna": 12,
+                "valor": "373373"
+            },
+            {
+                "campo": "nome_aluno",
+                "linha": 17,
+                "coluna": 1,
+                "valor": "ROSA NAIR DIAS"
+            }
+        ]
+    },
+    {
+        "id": "ufrj-47401084961",
+        "agrupador": "ufrj",
+        "tipoPessoa": "FISICA",
+        "nome": "HEITOR FERNANDO MURILO RAMOS",
+        "cpf": "47401084961",
+        "dataNascimento": "2000-01-01",
+        "tipo": "I",
+        "enderecos": [
+            {
+                "cep": "99042-085",
+                "logradouro": "RUA ANTÔNIO CESAR",
+                "bairro": "VERA CRUZ",
+                "cidade": "PASSO FUNDO",
+                "numero": "279",
+                "uf": "RS"
+            }
+        ],
+        "emails": [
+            {
+                "email": "heitorfernandoramos@live.com.br"
+            }
+        ],
+        "telefones": [
+            {
+                "tipo": "CELULAR",
+                "ddd": "54",
+                "telefone": "984296580"
+            }
+        ],
+        "informacoesAdicionais": [
+            {
+                "campo": "cpf_aluno",
+                "linha": 18,
+                "coluna": 2,
+                "valor": "47401084961"
+            },
+            {
+                "campo": "registro_aluno",
+                "linha": 18,
+                "coluna": 12,
+                "valor": "786470"
+            },
+            {
+                "campo": "nome_aluno",
+                "linha": 18,
+                "coluna": 1,
+                "valor": "HEITOR FERNANDO MURILO RAMOS"
+            }
+        ]
+    },
+    {
+        "id": "ufrj-29173074390",
+        "agrupador": "ufrj",
+        "tipoPessoa": "FISICA",
+        "nome": "ELISA RAYSSA BIANCA DUARTE",
+        "cpf": "29173074390",
+        "dataNascimento": "2000-05-13",
+        "tipo": "I",
+        "enderecos": [
+            {
+                "cep": "79015-370",
+                "logradouro": "RUA LUÍZ RONCOLATTO",
+                "bairro": "JARDIM PRESIDENTE",
+                "cidade": "CAMPO GRANDE",
+                "numero": "470",
+                "uf": "MS"
+            }
+        ],
+        "emails": [
+            {
+                "email": "elisa.rayssa.duarte@powerblade.com.br"
+            }
+        ],
+        "telefones": [
+            {
+                "tipo": "CELULAR",
+                "ddd": "67",
+                "telefone": "985918693"
+            }
+        ],
+        "informacoesAdicionais": [
+            {
+                "campo": "cpf_aluno",
+                "linha": 19,
+                "coluna": 2,
+                "valor": "29173074390"
+            },
+            {
+                "campo": "registro_aluno",
+                "linha": 19,
+                "coluna": 12,
+                "valor": "141017"
+            },
+            {
+                "campo": "nome_aluno",
+                "linha": 19,
+                "coluna": 1,
+                "valor": "ELISA RAYSSA BIANCA DUARTE"
+            }
+        ]
+    },
+    {
+        "id": "ufrj-04012272195",
+        "agrupador": "ufrj",
+        "tipoPessoa": "FISICA",
+        "nome": "BRUNO ANDERSON ENZO DA MATA",
+        "cpf": "04012272195",
+        "dataNascimento": "1973-04-02",
+        "tipo": "I",
+        "enderecos": [
+            {
+                "cep": "64052-150",
+                "logradouro": "RUA CORONEL BELISÁRIO DA CUNHA",
+                "bairro": "SÃO CRISTÓVÃO",
+                "cidade": "TERESINA",
+                "numero": "656",
+                "uf": "PI"
+            }
+        ],
+        "emails": [
+            {
+                "email": "bruno_damata@aerobravo.com.br"
+            }
+        ],
+        "telefones": [
+            {
+                "tipo": "CELULAR",
+                "ddd": "86",
+                "telefone": "983162103"
+            }
+        ],
+        "informacoesAdicionais": [
+            {
+                "campo": "cpf_aluno",
+                "linha": 20,
+                "coluna": 2,
+                "valor": "04012272195"
+            },
+            {
+                "campo": "registro_aluno",
+                "linha": 20,
+                "coluna": 12,
+                "valor": "780593"
+            },
+            {
+                "campo": "nome_aluno",
+                "linha": 20,
+                "coluna": 1,
+                "valor": "BRUNO ANDERSON ENZO DA MATA"
+            }
+        ]
+    },
+    {
+        "id": "ufrj-46547901360",
+        "agrupador": "ufrj",
+        "tipoPessoa": "FISICA",
+        "nome": "ELIANE SARAH SILVEIRA",
+        "cpf": "46547901360",
+        "dataNascimento": "1982-01-21",
+        "tipo": "I",
+        "enderecos": [
+            {
+                "cep": "61608-255",
+                "logradouro": "RUA CACIQUE ALBERTO",
+                "bairro": "PARQUE SOLEDADE",
+                "cidade": "CAUCAIA",
+                "numero": "706",
+                "uf": "CE"
+            }
+        ],
+        "emails": [
+            {
+                "email": "elianesarahsilveira@comdados.com"
+            }
+        ],
+        "telefones": [
+            {
+                "tipo": "CELULAR",
+                "ddd": "85",
+                "telefone": "994833659"
+            }
+        ],
+        "informacoesAdicionais": [
+            {
+                "campo": "cpf_aluno",
+                "linha": 21,
+                "coluna": 2,
+                "valor": "46547901360"
+            },
+            {
+                "campo": "registro_aluno",
+                "linha": 21,
+                "coluna": 12,
+                "valor": "703193"
+            },
+            {
+                "campo": "nome_aluno",
+                "linha": 21,
+                "coluna": 1,
+                "valor": "ELIANE SARAH SILVEIRA"
+            }
+        ]
+    }
+]
