@@ -227,4 +227,138 @@ def processar_dados():
     sistema_path = 'sistema.xlsx'
     df_sistema = pd.read_excel(sistema_path)
     df_clientes_validos['CPF'] = df_clientes_validos['CPF'].apply(lambda x: re.sub(r'\D', '', str(x)).zfill(11))
-    df_sistema['cpf'] = df_sistema['cpf'].apply(lambda x: re
+    df_sistema['cpf'] = df_sistema['cpf'].apply(lambda x: refill(11))
+    df_clientes_validos['TIPO'] = 'I'
+    df_clientes_validos.loc[df_clientes_validos['CPF'].isin(df_sistema['cpf']), 'TIPO'] = 'A'
+    print("Comparação concluída.")
+
+    # Converter para JSON
+    def converter_para_json(df):
+        clientes = []
+        for index, row in df.iterrows():
+            cliente = {
+                "id": f"{row['Faculdade']}-{row['CPF']}",
+                "agrupador": row['Faculdade'],
+                "tipoPessoa": "FISICA",
+                "nome": row['NOME'],
+                "cpf": row['CPF'],
+                "dataNascimento": row['Data de Nascimento'],
+                "tipo": row['TIPO'],
+                "enderecos": [
+                    {
+                        "cep": row['CEP'],
+                        "logradouro": row['Endereço'],
+                        "bairro": row['Bairro'],
+                        "cidade": row['Cidade'],
+                        "numero": str(row['Numero']),
+                        "uf": row['Estado']
+                    }
+                ],
+                "emails": [
+                    {
+                        "email": row['Email']
+                    }
+                ],
+                "telefones": [
+                    {
+                        "tipo": "CELULAR",
+                        "ddd": row['Telefone'][:2],
+                        "telefone": row['Telefone'][2:]
+                    }
+                ],
+                "informacoesAdicionais": [
+                    {
+                        "campo": "cpf_aluno",
+                        "linha": index + 2,
+                        "coluna": 2,
+                        "valor": row['CPF']
+                    },
+                    {
+                        "campo": "registro_aluno",
+                        "linha": index + 2,
+                        "coluna": 12,
+                        "valor": str(row['RA'])
+                    },
+                    {
+                        "campo": "nome_aluno",
+                        "linha": index + 2,
+                        "coluna": 1,
+                        "valor": row['NOME']
+                    }
+                ]
+            }
+            clientes.append(cliente)
+        return clientes
+
+    clientes_json = converter_para_json(df_clientes_validos)
+
+    output_json_path = 'clientes_para_subir.json'
+    with open(output_json_path, 'w', encoding='utf-8') as f:
+        json.dump(clientes_json, f, ensure_ascii=False, indent=4)
+
+    print("Conversão concluída. Arquivo 'clientes_para_subir.json' foi gerado.")
+
+if __name__ == "__main__":
+    processar_dados()
+```
+</details>
+
+## 🗂 Estrutura do Código
+
+O script `processamento.py` está dividido em várias seções, cada uma responsável por uma parte específica do processamento de dados:
+
+1. **📚 Importação de Bibliotecas**:
+   - Importa bibliotecas necessárias para manipulação de dados (`pandas`), validação (`re`), requisições HTTP (`requests`), manipulação de datas (`datetime`) e manipulação de JSON (`json`).
+
+2. **🔧 Funções de Padronização e Validação**:
+   - **`padronizar_e_limpar_dados(df)`**: Padroniza e limpa os dados.
+   - **`validar_cpf(cpf)`**: Valida o CPF.
+   - **`validar_email(email)`**: Valida o formato do e-mail.
+   - **`validar_telefone(telefone)`**: Valida o formato do telefone.
+   - **`validar_data_nascimento(data_nascimento)`**: Valida a data de nascimento e a idade.
+   - **`validar_nome_completo(nome)`**: Verifica se o nome contém pelo menos duas palavras.
+   - **`validar_cep(cep)`**: Valida o CEP usando a API ViaCEP.
+   - **`validar_endereco(data, endereco, bairro, cidade, estado)`**: Valida se o endereço corresponde ao CEP.
+
+3. **🧩 Função Principal de Processamento (`processar_dados`)**:
+   - Carrega os dados de `dados.xlsx` e `sistema.xlsx`.
+   - Padroniza e limpa os dados carregados.
+   - Valida os dados de cada cliente, adicionando-os a uma lista de clientes válidos ou inválidos, conforme o caso.
+   - Exporta os dados inválidos para `clientes_invalidos.xlsx`.
+   - Compara os clientes válidos com os dados de `sistema.xlsx` para definir o tipo (`A` para atualização e `I` para inserção).
+   - Converte os dados dos clientes válidos para JSON e exporta para `clientes_para_subir.json`.
+
+<br>
+
+## 🏃‍♂️ Como Executar o Script
+
+Para executar o script `processamento.py`, siga os passos abaixo:
+
+1. **Pré-requisitos**:
+   - Tenha o Python instalado na sua máquina.
+   - Instale as bibliotecas necessárias utilizando `pip`:
+     ```bash
+     pip install pandas requests openpyxl
+     ```
+
+2. **Arquivos Necessários**:
+   - Certifique-se de ter os arquivos `dados.xlsx` e `sistema.xlsx` na mesma pasta que o script `processamento.py`.
+
+3. **Execução**:
+   - No terminal, navegue até a pasta onde o script está localizado e execute o comando:
+     ```bash
+     python processamento.py
+     ```
+
+4. **Resultados**:
+   - Após a execução, os seguintes arquivos serão gerados:
+     - `clientes_invalidos.xlsx`: Contém os clientes inválidos e os motivos da invalidação.
+     - `clientes_para_subir.json`: Contém os dados dos clientes válidos prontos para serem inseridos ou atualizados no sistema.
+
+<br>
+
+## 🤝 Considerações Finais
+
+Este script foi desenvolvido para garantir que todos os dados de clientes sejam validados de acordo com as regras estabelecidas e que sejam preparados corretamente para inserção ou atualização no sistema. A utilização de APIs para validação de CEP e endereços garante a precisão dos dados geográficos. Espero que esta solução atenda às expectativas da Principia e demonstre minhas habilidades em manipulação e validação de dados.
+
+Caso haja qualquer dúvida ou necessidade de ajuste, estarei à disposição para auxiliar.
