@@ -76,107 +76,102 @@ def padronizar_e_limpar_dados(df):
 
 A seguir, estão as funções de validação implementadas para cada um dos campos específicos.
 
-- **Validação do CPF:** Verifica se o CPF é válido usando dígitos verificadores.
+**Validação do CPF:** Verifica se o CPF é válido usando dígitos verificadores.
 
-    <details>
-    <summary>Código de validação do CPF</summary>
+<details>
 
-    ```python
-    def validar_cpf(cpf):
-        cpf = re.sub(r'\D', '', str(cpf)).zfill(11)
-        if len(cpf) != 11:
+```python
+def validar_cpf(cpf):
+    cpf = re.sub(r'\D', '', str(cpf)).zfill(11)
+    if len(cpf) != 11:
+        return False
+    if cpf in [cpf[0] * 11 for _ in range(10)]:
+        return False
+    for i in range(9, 11):
+        value = sum((int(cpf[num]) * ((i+1) - num) for num in range(0, i)))
+        digit = ((value * 10) % 11) % 10
+        if digit != int(cpf[i]):
             return False
-        if cpf in [cpf[0] * 11 for _ in range(10)]:
-            return False
-        for i in range(9, 11):
-            value = sum((int(cpf[num]) * ((i+1) - num) for num in range(0, i)))
-            digit = ((value * 10) % 11) % 10
-            if digit != int(cpf[i]):
-                return False
-        return True
-    ```
-    </details>
+    return True
+```
+</details>
 
-- **Validação de e-mail:** Verifica se o e-mail está no formato correto usando expressões regulares.
+**Validação de e-mail:** Verifica se o e-mail está no formato correto usando expressões regulares.
 
-    <details>
-    <summary>Código de validação de e-mail</summary>
+<details>
 
-    ```python
-    def validar_email(email):
-        pattern = r'^[\w\.-]+@[\w\.-]+\.\w+$'
-        return re.match(pattern, email) is not None
-    ```
-    </details>
+```python
+def validar_email(email):
+    pattern = r'^[\w\.-]+@[\w\.-]+\.\w+$'
+    return re.match(pattern, email) is not None
+```
+</details>
 
-- **Validação de telefone:** Verifica se o telefone está no formato correto (10 ou 11 dígitos).
+**Validação de telefone:** Verifica se o telefone está no formato correto (10 ou 11 dígitos).
 
-    <details>
-    <summary>Código de validação de telefone</summary>
+<details>
 
-    ```python
-    def validar_telefone(telefone):
-        return re.match(r'^\d{10,11}$', str(telefone)) is not None
-    ```
-    </details>
+```python
+def validar_telefone(telefone):
+    return re.match(r'^\d{10,11}$', str(telefone)) is not None
+```
+</details>
 
-- **Validação de data de nascimento e idade:** Verifica se a data é válida e se a pessoa tem mais de 17 anos.
+**Validação de data de nascimento e idade:** Verifica se a data é válida e se a pessoa tem mais de 17 anos.
 
-    <details>
-    <summary>Código de validação de data de nascimento e idade</summary>
+<details>
 
-    ```python
-    def validar_data_nascimento(data_nascimento):
-        try:
-            data = datetime.strptime(data_nascimento, '%Y-%m-%d')
-            idade = (datetime.now() - data).days // 365
-            return idade >= 18
-        except ValueError:
-            return False
-    ```
-    </details>
+```python
+def validar_data_nascimento(data_nascimento):
+    try:
+        data = datetime.strptime(data_nascimento, '%Y-%m-%d')
+        idade = (datetime.now() - data).days // 365
+        return idade >= 18
+    except ValueError:
+        return False
+```
+</details>
 
-- **Validação de nome completo:** Verifica se o nome contém pelo menos duas palavras.
+**Validação de nome completo:** Verifica se o nome contém pelo menos duas palavras.
 
-    <details>
-    <summary>Código de validação de nome completo</summary>
+<details>
 
-    ```python
-    def validar_nome_completo(nome):
-        return len(nome.split()) >= 2
-    ```
-    </details>
+```python
+def validar_nome_completo(nome):
+    return len(nome.split()) >= 2
+```
+</details>
 
-- **Validação de CEP utilizando a API ViaCEP:** Verifica se o CEP é válido e retorna os dados do endereço.
+**Validação de CEP utilizando a API ViaCEP:** Verifica se o CEP é válido e retorna os dados do endereço.
 
-    <details>
-    <summary>Código de validação de CEP</summary>
+<details>
 
-    ```python
-    def validar_cep(cep):
-        response = requests.get(f'https://viacep.com.br/ws/{cep}/json/')
-        if response.status_code == 200):
-            data = response.json()
-            if data.get('erro'):
-                return False, {}
-            return True, data
-        return False, {}
-    ```
-    </details>
+```python
+def validar_cep(cep):
+    response = requests.get(f'https://viacep.com.br/ws/{cep}/json/')
+    if response.status_code == 200):
+        data = response.json()
+        if data.get('erro'):
+            return False, {}
+        return True, data
+    return False, {}
+```
+</details>
 
-- **Validação de endereço utilizando os dados da API ViaCEP:** Verifica se o endereço corresponde ao CEP fornecido.
+**Validação de endereço utilizando os dados da API ViaCEP:** Verifica se o endereço corresponde ao CEP fornecido.
 
-    <details>
-    <summary>Código de validação de endereço</summary>
+<details>
 
-    ```python
-    def validar_endereco(data, endereco, bairro, cidade, estado):
-        return (data['logradouro'].upper() in endereco and
-                data['bairro'].upper() == bairro and
-                data['localidade'].upper() == cidade and
-                data['uf'].upper() == estado)
-    ```
-    </details>
+```python
+def validar_endereco(data, endereco, bairro, cidade, estado):
+    return (data['logradouro'].upper() in endereco and
+            data['bairro'].upper() == bairro and
+            data['localidade'].upper() == cidade and
+            data['uf'].upper() == estado)
+```
+</details>
+
+<br>
 
 ### 🧩 Função Principal de Processamento
 
@@ -308,6 +303,8 @@ if __name__ == "__main__":
     processar_dados()
 ```
 </details>
+
+<br>
 
 ## 🗂 Como Resolvi o Desafio
 
