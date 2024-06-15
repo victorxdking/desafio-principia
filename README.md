@@ -2,7 +2,7 @@
 
 Este documento descreve a solução implementada para o desafio de processamento de dados solicitado pela empresa Principia para uma vaga de estágio. O objetivo do desafio foi validar e processar dados de clientes a partir de um arquivo Excel, utilizando diversas regras de validação e APIs, e gerar arquivos de saída com os resultados.
 
-## Descrição do Desafio
+## 📋 Descrição do Desafio
 
 O desafio consistiu nas seguintes etapas:
 1. **Validação dos dados de clientes:**
@@ -20,11 +20,14 @@ O desafio consistiu nas seguintes etapas:
    - Se o cliente não tiver cadastro, ele receberá o tipo `I` de inserção.
 4. **Exportação de clientes válidos para um arquivo JSON (`clientes_para_subir.json`).**
 
-## Implementação
+## 🛠 Implementação
 
 A solução foi implementada em um script Python (`processamento.py`) que realiza as seguintes etapas:
 
-### Importação de Bibliotecas
+### 📚 Importação de Bibliotecas
+
+<details>
+  <summary>Código de importação de bibliotecas</summary>
 
 ```python
 import pandas as pd
@@ -33,10 +36,14 @@ import requests
 from datetime import datetime
 import json
 ```
+</details>
 
-### Funções de Padronização e Validação
+### 🔧 Funções de Padronização e Validação
 
 - **Padronização e limpeza de dados:** Converte texto para maiúsculas, remove espaços em branco, formata CPF e data de nascimento, remove caracteres não numéricos de telefones, padroniza o nome da faculdade e elimina duplicatas.
+
+<details>
+  <summary>Código de padronização e limpeza de dados</summary>
 
 ```python
 def padronizar_e_limpar_dados(df):
@@ -53,8 +60,12 @@ def padronizar_e_limpar_dados(df):
     df = df.drop_duplicates()
     return df
 ```
+</details>
 
 - **Validação do CPF:** Verifica se o CPF é válido usando dígitos verificadores.
+
+<details>
+  <summary>Código de validação do CPF</summary>
 
 ```python
 def validar_cpf(cpf):
@@ -70,23 +81,35 @@ def validar_cpf(cpf):
             return False
     return True
 ```
+</details>
 
 - **Validação de e-mail:** Verifica se o e-mail está no formato correto usando expressões regulares.
+
+<details>
+  <summary>Código de validação de e-mail</summary>
 
 ```python
 def validar_email(email):
     pattern = r'^[\w\.-]+@[\w\.-]+\.\w+$'
     return re.match(pattern, email) is not None
 ```
+</details>
 
 - **Validação de telefone:** Verifica se o telefone está no formato correto (10 ou 11 dígitos).
+
+<details>
+  <summary>Código de validação de telefone</summary>
 
 ```python
 def validar_telefone(telefone):
     return re.match(r'^\d{10,11}$', str(telefone)) is not None
 ```
+</details>
 
 - **Validação de data de nascimento e idade:** Verifica se a data é válida e se a pessoa tem mais de 17 anos.
+
+<details>
+  <summary>Código de validação de data de nascimento e idade</summary>
 
 ```python
 def validar_data_nascimento(data_nascimento):
@@ -97,15 +120,23 @@ def validar_data_nascimento(data_nascimento):
     except ValueError:
         return False
 ```
+</details>
 
 - **Validação de nome completo:** Verifica se o nome contém pelo menos duas palavras.
+
+<details>
+  <summary>Código de validação de nome completo</summary>
 
 ```python
 def validar_nome_completo(nome):
     return len(nome.split()) >= 2
 ```
+</details>
 
 - **Validação de CEP utilizando a API ViaCEP:** Verifica se o CEP é válido e retorna os dados do endereço.
+
+<details>
+  <summary>Código de validação de CEP</summary>
 
 ```python
 def validar_cep(cep):
@@ -117,8 +148,12 @@ def validar_cep(cep):
         return True, data
     return False, {}
 ```
+</details>
 
 - **Validação de endereço utilizando os dados da API ViaCEP:** Verifica se o endereço corresponde ao CEP fornecido.
+
+<details>
+  <summary>Código de validação de endereço</summary>
 
 ```python
 def validar_endereco(data, endereco, bairro, cidade, estado):
@@ -127,10 +162,14 @@ def validar_endereco(data, endereco, bairro, cidade, estado):
             data['localidade'].upper() == cidade and
             data['uf'].upper() == estado)
 ```
+</details>
 
-### Função Principal de Processamento
+### 🧩 Função Principal de Processamento
 
 A função principal carrega os dados, padroniza-os, valida cada registro e exporta os resultados.
+
+<details>
+  <summary>Código da função principal de processamento</summary>
 
 ```python
 def processar_dados():
@@ -181,7 +220,8 @@ def processar_dados():
     df_clientes_validos['CPF'] = df_clientes_validos['CPF'].apply(lambda x: re.sub(r'\D', '', str(x)).zfill(11))
     df_sistema['cpf'] = df_sistema['cpf'].apply(lambda x: re.sub(r'\D', '', str(x)).zfill(11))
     df_clientes_validos['TIPO'] = 'I'
-    df_clientes_validos.loc[df_clientes_validos['CPF'].isin(df_sistema['cpf']), 'TIPO'] = 'A'
+    df_clientes_validos.loc[df_clientes_validos['CPF'].isin
+(df_sistema['cpf']), 'TIPO'] = 'A'
     print("Comparação concluída.")
 
     # Converter para JSON
@@ -253,15 +293,16 @@ def processar_dados():
 if __name__ == "__main__":
     processar_dados()
 ```
+</details>
 
-## Estrutura do Código
+## 🗂 Estrutura do Código
 
 O script `processamento.py` está dividido em várias seções, cada uma responsável por uma parte específica do processamento de dados:
 
-1. **Importação de Bibliotecas**:
+1. **📚 Importação de Bibliotecas**:
    - Importa bibliotecas necessárias para manipulação de dados (`pandas`), validação (`re`), requisições HTTP (`requests`), manipulação de datas (`datetime`) e manipulação de JSON (`json`).
 
-2. **Funções de Padronização e Validação**:
+2. **🔧 Funções de Padronização e Validação**:
    - **`padronizar_e_limpar_dados(df)`**: Padroniza e limpa os dados.
    - **`validar_cpf(cpf)`**: Valida o CPF.
    - **`validar_email(email)`**: Valida o formato do e-mail.
@@ -271,7 +312,7 @@ O script `processamento.py` está dividido em várias seções, cada uma respons
    - **`validar_cep(cep)`**: Valida o CEP usando a API ViaCEP.
    - **`validar_endereco(data, endereco, bairro, cidade, estado)`**: Valida se o endereço corresponde ao CEP.
 
-3. **Função Principal de Processamento (`processar_dados`)**:
+3. **🧩 Função Principal de Processamento (`processar_dados`)**:
    - Carrega os dados de `dados.xlsx` e `sistema.xlsx`.
    - Padroniza e limpa os dados carregados.
    - Valida os dados de cada cliente, adicionando-os a uma lista de clientes válidos ou inválidos, conforme o caso.
@@ -279,7 +320,7 @@ O script `processamento.py` está dividido em várias seções, cada uma respons
    - Compara os clientes válidos com os dados de `sistema.xlsx` para definir o tipo (`A` para atualização e `I` para inserção).
    - Converte os dados dos clientes válidos para JSON e exporta para `clientes_para_subir.json`.
 
-## Como Executar o Script
+## 🏃‍♂️ Como Executar o Script
 
 Para executar o script `processamento.py`, siga os passos abaixo:
 
@@ -304,7 +345,7 @@ Para executar o script `processamento.py`, siga os passos abaixo:
      - `clientes_invalidos.xlsx`: Contém os clientes inválidos e os motivos da invalidação.
      - `clientes_para_subir.json`: Contém os dados dos clientes válidos prontos para serem inseridos ou atualizados no sistema.
 
-## Considerações Finais
+## 🤝 Considerações Finais
 
 Este script foi desenvolvido para garantir que todos os dados de clientes sejam validados de acordo com as regras estabelecidas e que sejam preparados corretamente para inserção ou atualização no sistema. A utilização de APIs para validação de CEP e endereços garante a precisão dos dados geográficos. Espero que esta solução atenda às expectativas da Principia e demonstre minhas habilidades em manipulação e validação de dados.
 
