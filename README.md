@@ -1,6 +1,12 @@
 # Desafio de Processamento de Dados - Principia
 
+<div style="text-align: center;">
+  <img src="https://c5gwmsmjx1.execute-api.us-east-1.amazonaws.com/prod/dados_processo_seletivo/logo_empresa/147549/principia.jpg" alt="Logo Principia">
+</div>
+
 O objetivo do desafio foi validar e processar dados de clientes a partir de um arquivo Excel, utilizando diversas regras de validação, e gerar arquivos de saída com os resultados.
+
+<br>
 
 ## 📋 Descrição do Desafio
 
@@ -143,7 +149,7 @@ def validar_nome_completo(nome):
 ```python
 def validar_cep(cep):
     response = requests.get(f'https://viacep.com.br/ws/{cep}/json/')
-    if response.status_code == 200:
+    if response.status_code == 200):
         data = response.json()
         if data.get('erro'):
             return False, {}
@@ -220,10 +226,9 @@ def processar_dados():
     sistema_path = 'sistema.xlsx'
     df_sistema = pd.read_excel(sistema_path)
     df_clientes_validos['CPF'] = df_clientes_validos['CPF'].apply(lambda x: re.sub(r'\D', '', str(x)).zfill(11))
-    df_sistema['cpf'] = df_sistema['cpf'].apply(lambda x: re.sub(r'\D', '', str(x)).zfill(11))
+    df_sistema['cpf'] = df_sistema['cpf'].apply(lambda x: re.sub(r'\D', '', str(x)).z fill(11))
     df_clientes_validos['TIPO'] = 'I'
-    df_clientes_validos.loc[df_clientes_validos['CPF'].isin
-(df_sistema['cpf']), 'TIPO'] = 'A'
+    df_clientes_validos.loc[df_clientes_validos['CPF'].isin(df_sistema['cpf']), 'TIPO'] = 'A'
     print("Comparação concluída.")
 
     # Converter para JSON
