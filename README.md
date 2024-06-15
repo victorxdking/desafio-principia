@@ -371,6 +371,6 @@ Para executar o script `processamento.py`, siga os passos abaixo:
 
 ## 🤝 Considerações Finais
 
-Este script foi desenvolvido para garantir que todos os dados de clientes sejam validados de acordo com as regras estabelecidas e que sejam preparados corretamente para inserção ou atualização no sistema. A utilização de APIs para validação de CEP e endereços garante a precisão dos dados geográficos. Espero que esta solução atenda às expectativas da Principia e demonstre minhas habilidades em manipulação e validação de dados.
+Este script foi desenvolvido para garantir que todos os dados de clientes sejam validados de acordo com as regras estabelecidas e que sejam preparados corretamente para inserção ou atualização no sistema. A utilização da API viaCEP garante a precisão dos endereços. Espero que esta solução atenda às expectativas da Principia e demonstre minhas habilidades em manipulação e validação de dados.
 
 Caso haja qualquer dúvida ou necessidade de ajuste, estarei à disposição para auxiliar.
