@@ -20,6 +20,7 @@ def padronizar_e_limpar_dados(df):
     return df
 
 # Função para validar CPF
+# Verifica se o CPF é válido usando dígitos verificadores
 def validar_cpf(cpf):
     cpf = re.sub(r'\D', '', str(cpf)).zfill(11)
     if len(cpf) != 11:
@@ -34,15 +35,18 @@ def validar_cpf(cpf):
     return True
 
 # Função para validar email
+# Verifica se o e-mail está no formato correto usando expressões regulares
 def validar_email(email):
     pattern = r'^[\w\.-]+@[\w\.-]+\.\w+$'
     return re.match(pattern, email) is not None
 
 # Função para validar telefone
+# Verifica se o telefone está no formato correto (10 ou 11 dígitos)
 def validar_telefone(telefone):
     return re.match(r'^\d{10,11}$', str(telefone)) is not None
 
 # Função para validar a data de nascimento e idade
+#Verifica se a data é válida e se a pessoa tem mais de 17 anos
 def validar_data_nascimento(data_nascimento):
     try:
         data = datetime.strptime(data_nascimento, '%Y-%m-%d')
@@ -52,10 +56,12 @@ def validar_data_nascimento(data_nascimento):
         return False
 
 # Função para validar nome completo
+# Verifica se o nome contém pelo menos duas palavras
 def validar_nome_completo(nome):
     return len(nome.split()) >= 2
 
 # Função para validar CEP utilizando a API ViaCEP
+# Verifica se o CEP é válido e retorna os dados do endereço
 def validar_cep(cep):
     response = requests.get(f'https://viacep.com.br/ws/{cep}/json/')
     if response.status_code == 200:
@@ -66,6 +72,7 @@ def validar_cep(cep):
     return False, {}
 
 # Função para validar endereço utilizando os dados da API ViaCEP
+# Verifica se o endereço corresponde ao CEP fornecido
 def validar_endereco(data, endereco, bairro, cidade, estado):
     return (data['logradouro'].upper() in endereco and
             data['bairro'].upper() == bairro and
