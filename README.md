@@ -72,6 +72,8 @@ def padronizar_e_limpar_dados(df):
 ```
 </details>
 
+<br>
+
 ### 🔍 Funções de Validação
 
 A seguir, estão as funções de validação implementadas para cada um dos campos específicos.
