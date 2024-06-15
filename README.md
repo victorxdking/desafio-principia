@@ -32,6 +32,8 @@ O desafio consistiu nas seguintes etapas:
 
 A solução foi implementada em um script Python (`processamento.py`) que realiza as seguintes etapas:
 
+<br>
+
 ### 📚 Importação de Bibliotecas
 
 Importei as bibliotecas necessárias para manipulação de dados, validação e interação com APIs.
@@ -47,6 +49,9 @@ from datetime import datetime
 import json
 ```
 </details>
+
+
+<br>
 
 ### 🔧 Padronização e Limpeza de Dados
 
