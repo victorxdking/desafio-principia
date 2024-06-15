@@ -198,17 +198,17 @@ def processar_dados():
             motivos_invalidos.append("CPF inválido")
         if not validar_nome_completo(row['NOME']):
             motivos_invalidos.append("Nome incompleto")
-        if not validar_data_nascimento(row['Data de Nascimento']):
+        if não validar_data_nascimento(row['Data de Nascimento']):
             motivos_invalidos.append("Data de nascimento inválida ou idade menor que 18")
-        if not validar_email(row['Email']):
+        if não validar_email(row['Email']):
             motivos_invalidos.append("Email inválido")
-        if not validar_telefone(row['Telefone']):
+        if não validar_telefone(row['Telefone']):
             motivos_invalidos.append("Telefone inválido")
         
         cep_valido, data_cep = validar_cep(row['CEP'])
-        if not cep_valido:
+        if não cep_valido:
             motivos_invalidos.append("CEP inválido")
-        elif not validar_endereco(data_cep, row['Endereço'], row['Bairro'], row['Cidade'], row['Estado']):
+        elif não validar_endereco(data_cep, row['Endereço'], row['Bairro'], row['Cidade'], row['Estado']):
             motivos_invalidos.append("Endereço não corresponde ao CEP")
         
         if motivos_invalidos:
@@ -302,30 +302,37 @@ if __name__ == "__main__":
 ```
 </details>
 
-## 🗂 Estrutura do Código
+## 🗂 Como Resolvi o Desafio
 
-O script `processamento.py` está dividido em várias seções, cada uma responsável por uma parte específica do processamento de dados:
+### Estrutura de Pensamento
 
-1. **📚 Importação de Bibliotecas**:
-   - Importa bibliotecas necessárias para manipulação de dados (`pandas`), validação (`re`), requisições HTTP (`requests`), manipulação de datas (`datetime`) e manipulação de JSON (`json`).
+Minha abordagem para resolver o desafio envolveu uma série de passos lógicos, cada um destinado a garantir a precisão e a integridade dos dados dos clientes. Abaixo, descrevo minha lógica de pensamento e as razões por trás de cada decisão:
 
-2. **🔧 Funções de Padronização e Validação**:
-   - **`padronizar_e_limpar_dados(df)`**: Padroniza e limpa os dados.
-   - **`validar_cpf(cpf)`**: Valida o CPF.
-   - **`validar_email(email)`**: Valida o formato do e-mail.
-   - **`validar_telefone(telefone)`**: Valida o formato do telefone.
-   - **`validar_data_nascimento(data_nascimento)`**: Valida a data de nascimento e a idade.
-   - **`validar_nome_completo(nome)`**: Verifica se o nome contém pelo menos duas palavras.
-   - **`validar_cep(cep)`**: Valida o CEP usando a API ViaCEP.
-   - **`validar_endereco(data, endereco, bairro, cidade, estado)`**: Valida se o endereço corresponde ao CEP.
+1. **Importação de Bibliotecas**: 
+   - Utilizei bibliotecas robustas como `pandas` para manipulação de dados, `re` para expressões regulares, `requests` para interações com APIs, `datetime` para manipulação de datas e `json` para exportação de dados em formato JSON. Essas bibliotecas são amplamente reconhecidas e eficazes para o tipo de tarefa proposta.
 
-3. **🧩 Função Principal de Processamento (`processar_dados`)**:
-   - Carrega os dados de `dados.xlsx` e `sistema.xlsx`.
-   - Padroniza e limpa os dados carregados.
-   - Valida os dados de cada cliente, adicionando-os a uma lista de clientes válidos ou inválidos, conforme o caso.
-   - Exporta os dados inválidos para `clientes_invalidos.xlsx`.
-   - Compara os clientes válidos com os dados de `sistema.xlsx` para definir o tipo (`A` para atualização e `I` para inserção).
-   - Converte os dados dos clientes válidos para JSON e exporta para `clientes_para_subir.json`.
+2. **Padronização e Limpeza de Dados**:
+   - A primeira etapa foi garantir que todos os dados estivessem em um formato consistente. Converti textos para maiúsculas, removi espaços em branco e formatei dados críticos como CPF e data de nascimento. Isso reduz a possibilidade de erros durante a validação.
+   - Remover duplicatas é essencial para evitar processamento redundante e inconsistências nos resultados finais.
+
+3. **Validações Específicas**:
+   - **CPF**: Implementei uma validação baseada nos dígitos verificadores, um método confiável para verificar a autenticidade de CPFs.
+   - **E-mail e Telefone**: Usei expressões regulares para garantir que ambos os campos estivessem no formato correto, uma abordagem eficaz para validações de padrões.
+   - **Data de Nascimento e Idade**: A validade da data e a idade mínima foram verificadas para assegurar que os clientes fossem maiores de 17 anos, conforme exigido.
+   - **Nome Completo**: Assegurei que o nome contivesse pelo menos duas palavras, garantindo um mínimo de informações de identificação.
+   - **CEP e Endereço**: Utilizei a API ViaCEP para verificar a validade dos CEPs e validar se o endereço informado correspondia ao CEP fornecido. Isso aumenta a precisão dos dados de localização.
+
+4. **Processamento Principal**:
+   - Carreguei e padronizei os dados iniciais, seguidos por um loop de validação onde cada registro foi verificado individualmente. Clientes inválidos foram coletados com os motivos das invalidações para posterior exportação.
+   - **Comparação com Sistema Existente**: Utilizei um arquivo `sistema.xlsx` para verificar se os clientes já estavam cadastrados. Clientes existentes foram marcados para atualização (`A`), enquanto novos clientes foram marcados para inserção (`I`).
+
+5. **Exportação de Resultados**:
+   - Clientes inválidos foram exportados para `clientes_invalidos.xlsx`, detalhando os motivos da invalidação.
+   - Clientes válidos foram exportados para um arquivo JSON (`clientes_para_subir.json`), preparado para inserção ou atualização no sistema, com todos os dados necessários estruturados adequadamente.
+
+### Raciocínio por Trás da Solução
+
+Ao estruturar o código dessa maneira, assegurei que cada etapa do processo fosse tratada de forma modular e extensível. A modularidade facilita futuras manutenções e ajustes. Além disso, ao usar APIs e bibliotecas confiáveis, garanti a precisão e a eficiência do processamento de dados. A separação clara entre etapas de padronização, validação, processamento e exportação permite um fluxo de trabalho lógico e fácil de seguir.
 
 <br>
 
