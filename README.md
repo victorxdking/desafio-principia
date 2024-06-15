@@ -1,6 +1,6 @@
 # Desafio de Processamento de Dados - Principia
 
-Este documento descreve a solução implementada para o desafio de processamento de dados solicitado pela empresa Principia para uma vaga de estágio. O objetivo do desafio foi validar e processar dados de clientes a partir de um arquivo Excel, utilizando diversas regras de validação e APIs, e gerar arquivos de saída com os resultados.
+O objetivo do desafio foi validar e processar dados de clientes a partir de um arquivo Excel, utilizando diversas regras de validação, e gerar arquivos de saída com os resultados.
 
 ## 📋 Descrição do Desafio
 
@@ -19,6 +19,8 @@ O desafio consistiu nas seguintes etapas:
    - Se o cliente já tiver cadastro, ele receberá o tipo `A` de atualização.
    - Se o cliente não tiver cadastro, ele receberá o tipo `I` de inserção.
 4. **Exportação de clientes válidos para um arquivo JSON (`clientes_para_subir.json`).**
+
+<br>
 
 ## 🛠 Implementação
 
