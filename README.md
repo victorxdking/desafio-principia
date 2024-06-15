@@ -37,7 +37,9 @@ O desafio consistiu nas seguintes etapas:
 
 <br>
 
-4. **Exportação de clientes válidos para um arquivo JSON `clientes_para_subir.json`.**
+4. **Exportação de clientes válidos: para um arquivo JSON.**
+
+    - `clientes_para_subir.json`.
 
 <br>
 
@@ -335,34 +337,6 @@ if __name__ == "__main__":
 <br>
 
 ## 🗂 Como Resolvi o Desafio
-
-### Estrutura de Pensamento
-
-Minha abordagem para resolver o desafio envolveu uma série de passos lógicos, cada um destinado a garantir a precisão e a integridade dos dados dos clientes. Abaixo, descrevo minha lógica de pensamento e as razões por trás de cada decisão:
-
-1. **Importação de Bibliotecas**: 
-   - Utilizei bibliotecas robustas como `pandas` para manipulação de dados, `re` para expressões regulares, `requests` para interações com APIs, `datetime` para manipulação de datas e `json` para exportação de dados em formato JSON. Essas bibliotecas são amplamente reconhecidas e eficazes para o tipo de tarefa proposta.
-
-2. **Padronização e Limpeza de Dados**:
-   - A primeira etapa foi garantir que todos os dados estivessem em um formato consistente. Converti textos para maiúsculas, removi espaços em branco e formatei dados críticos como CPF e data de nascimento. Isso reduz a possibilidade de erros durante a validação.
-   - Remover duplicatas é essencial para evitar processamento redundante e inconsistências nos resultados finais.
-
-3. **Validações Específicas**:
-   - **CPF**: Implementei uma validação baseada nos dígitos verificadores, um método confiável para verificar a autenticidade de CPFs.
-   - **E-mail e Telefone**: Usei expressões regulares para garantir que ambos os campos estivessem no formato correto, uma abordagem eficaz para validações de padrões.
-   - **Data de Nascimento e Idade**: A validade da data e a idade mínima foram verificadas para assegurar que os clientes fossem maiores de 17 anos, conforme exigido.
-   - **Nome Completo**: Assegurei que o nome contivesse pelo menos duas palavras, garantindo um mínimo de informações de identificação.
-   - **CEP e Endereço**: Utilizei a API ViaCEP para verificar a validade dos CEPs e validar se o endereço informado correspondia ao CEP fornecido. Isso aumenta a precisão dos dados de localização.
-
-4. **Processamento Principal**:
-   - Carreguei e padronizei os dados iniciais, seguidos por um loop de validação onde cada registro foi verificado individualmente. Clientes inválidos foram coletados com os motivos das invalidações para posterior exportação.
-   - **Comparação com Sistema Existente**: Utilizei um arquivo `sistema.xlsx` para verificar se os clientes já estavam cadastrados. Clientes existentes foram marcados para atualização (`A`), enquanto novos clientes foram marcados para inserção (`I`).
-
-5. **Exportação de Resultados**:
-   - Clientes inválidos foram exportados para `clientes_invalidos.xlsx`, detalhando os motivos da invalidação.
-   - Clientes válidos foram exportados para um arquivo JSON (`clientes_para_subir.json`), preparado para inserção ou atualização no sistema, com todos os dados necessários estruturados adequadamente.
-
-### Raciocínio por Trás da Solução
 
 Ao estruturar o código dessa maneira, assegurei que cada etapa do processo fosse tratada de forma modular e extensível. A modularidade facilita futuras manutenções e ajustes. Além disso, ao usar APIs e bibliotecas confiáveis, garanti a precisão e a eficiência do processamento de dados. A separação clara entre etapas de padronização, validação, processamento e exportação permite um fluxo de trabalho lógico e fácil de seguir.
 
