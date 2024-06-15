@@ -1,4 +1,4 @@
-<h1 align='center'>Desafio de Processamento de Dados - Principia 🚀</h1>
+<h1 align='center'>Desafio de Processamento de Dados - Principia 🎓</h1>
 
 <p align="center">
   <img src="https://c5gwmsmjx1.execute-api.us-east-1.amazonaws.com/prod/dados_processo_seletivo/logo_empresa/147549/principia.jpg" alt="Logo Principia">
@@ -337,9 +337,15 @@ if __name__ == "__main__":
 
 <br>
 
-## 🗂 Como Resolvi o Desafio
+## 🧑‍💻 Como Pensei para Resolver, e Por que Fiz Assim?
 
-Ao estruturar o código dessa maneira, assegurei que cada etapa do processo fosse tratada de forma modular e extensível. A modularidade facilita futuras manutenções e ajustes. Além disso, ao usar APIs e bibliotecas confiáveis, garanti a precisão e a eficiência do processamento de dados. A separação clara entre etapas de padronização, validação, processamento e exportação permite um fluxo de trabalho lógico e fácil de seguir.
+Para resolver o desafio, minha principal preocupação foi garantir que o código fosse fácil de manter, eficiente e preciso. Optei por dividir o processo em etapas claras para que cada parte do código tivesse uma responsabilidade específica. Isso não apenas facilita a depuração e testes, mas também permite que futuras mudanças sejam implementadas de forma isolada, sem afetar outras partes do sistema.
+
+Escolhi usar pandas pela sua robustez e facilidade de uso na manipulação de dados em Excel, essencial para ler e limpar os dados de entrada. A biblioteca re foi escolhida pela sua eficiência em trabalhar com expressões regulares, que são fundamentais para validações de formato como CPF e e-mail. Usei requests para acessar a API ViaCEP porque é uma biblioteca simples e direta para fazer requisições HTTP, garantindo que os endereços fossem validados com precisão.
+
+A ideia de padronizar os dados antes de validar surgiu da necessidade de evitar problemas comuns como diferenças de capitalização ou espaços em branco desnecessários, que poderiam levar a falhas de validação. As funções específicas para cada tipo de validação ajudam a manter o código organizado e fácil de entender, facilitando a identificação de possíveis pontos de falha e ajustes necessários.
+
+Separar os dados válidos dos inválidos e exportá-los para arquivos distintos permite um controle mais claro sobre o estado de cada registro, ajudando a identificar rapidamente os problemas e agir sobre eles. Além disso, essa abordagem modular assegura que cada parte do processo possa ser reutilizada ou adaptada para diferentes contextos ou projetos futuros, aumentando a flexibilidade do código.
 
 <br>
 
@@ -347,26 +353,33 @@ Ao estruturar o código dessa maneira, assegurei que cada etapa do processo foss
 
 Para executar o script `processamento.py`, siga os passos abaixo:
 
-1. **Pré-requisitos**:
+**1. Pré-requisitos**:
+
    - Tenha o Python instalado na sua máquina.
    - Instale as bibliotecas necessárias utilizando `pip`:
+
      ```bash
      pip install pandas requests openpyxl
      ```
 
-2. **Arquivos Necessários**:
-   - Certifique-se de ter os arquivos `dados.xlsx` e `sistema.xlsx` na mesma pasta que o script `processamento.py`.
+**2. Arquivos Necessários**:
 
-3. **Execução**:
-   - No terminal, navegue até a pasta onde o script está localizado e execute o comando:
+Certifique-se de ter os arquivos `dados.xlsx` e `sistema.xlsx` na mesma pasta que o script `processamento.py`.
+
+**3. Execução**:
+
+No terminal, navegue até a pasta onde o script está localizado e execute o comando:
+
      ```bash
      python processamento.py
      ```
 
-4. **Resultados**:
-   - Após a execução, os seguintes arquivos serão gerados:
-     - `clientes_invalidos.xlsx`: Contém os clientes inválidos e os motivos da invalidação.
-     - `clientes_para_subir.json`: Contém os dados dos clientes válidos prontos para serem inseridos ou atualizados no sistema.
+**4. Resultados**:
+   
+Após a execução, os seguintes arquivos serão gerados:
+
+- `clientes_invalidos.xlsx`: Contém os clientes inválidos e os motivos da invalidação.
+- `clientes_para_subir.json`: Contém os dados dos clientes válidos prontos para serem inseridos ou atualizados no sistema.
 
 <br>
 
