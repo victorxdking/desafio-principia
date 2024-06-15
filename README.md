@@ -212,6 +212,7 @@ A função principal carrega os dados, padroniza-os, valida cada registro e expo
   <summary>Código da função</summary>
 
 ```python
+# Função principal de processamento
 def processar_dados():
     # Carregar e padronizar os dados
     caminho_arquivo = 'dados.xlsx'
@@ -226,21 +227,21 @@ def processar_dados():
     for index, row in df_limpo.iterrows():
         motivos_invalidos = []
         
-        if não validar_cpf(row['CPF']):
+        if not validar_cpf(row['CPF']):
             motivos_invalidos.append("CPF inválido")
-        if não validar_nome_completo(row['NOME']):
+        if not validar_nome_completo(row['NOME']):
             motivos_invalidos.append("Nome incompleto")
-        if não validar_data_nascimento(row['Data de Nascimento']):
+        if not validar_data_nascimento(row['Data de Nascimento']):
             motivos_invalidos.append("Data de nascimento inválida ou idade menor que 18")
-        if não validar_email(row['Email']):
+        if not validar_email(row['Email']):
             motivos_invalidos.append("Email inválido")
-        if não validar_telefone(row['Telefone']):
+        if not validar_telefone(row['Telefone']):
             motivos_invalidos.append("Telefone inválido")
         
         cep_valido, data_cep = validar_cep(row['CEP'])
-        if não cep_valido:
+        if not cep_valido:
             motivos_invalidos.append("CEP inválido")
-        elif não validar_endereco(data_cep, row['Endereço'], row['Bairro'], row['Cidade'], row['Estado']):
+        elif not validar_endereco(data_cep, row['Endereço'], row['Bairro'], row['Cidade'], row['Estado']):
             motivos_invalidos.append("Endereço não corresponde ao CEP")
         
         if motivos_invalidos:
@@ -251,8 +252,7 @@ def processar_dados():
 
     df_clientes_validos = pd.DataFrame(clientes_validos)
     df_clientes_invalidos = pd.DataFrame(clientes_invalidos)
-    df_clientes_invalidos.to_excel('clientes```markdown
-invalidos.xlsx', index=False)
+    df_clientes_invalidos.to_excel('clientes_invalidos.xlsx', index=False)
     print("Validação concluída. Arquivo 'clientes_invalidos.xlsx' foi gerado.")
 
     # Comparar com o sistema
