@@ -389,7 +389,7 @@ if __name__ == "__main__":
 
 <br>
 
-## 🧑‍💻 Como Pensei para Resolver, e Por que Fiz Assim?
+## 🧑‍💻 Como Pensei para Resolver e Por que Fiz Assim?
 
 Para resolver o desafio, minha principal preocupação foi garantir que o código fosse fácil de manter, eficiente e preciso. Optei por dividir o processo em etapas claras para que cada parte do código tivesse uma responsabilidade específica. Isso não apenas facilita a depuração e testes, mas também permite que futuras mudanças sejam implementadas de forma isolada, sem afetar outras partes do sistema.
 
