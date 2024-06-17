@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 # Função para padronizar e limpar os dados
 def padronizar_e_limpar_dados(df):
     """
-    Padroniza e limpa os dados do DataFrame.
+    Padroniza e limpa os dados do DataFrame
     """
     df['NOME'] = df['NOME'].str.upper().str.strip()
     df['Endereço'] = df['Endereço'].str.upper().str.strip()
@@ -30,7 +30,7 @@ def padronizar_e_limpar_dados(df):
 # Função para validar CPF
 def validar_cpf(cpf):
     """
-    Valida o CPF.
+    Valida se o CPF é válido usando dígitos verificadores
     """
     cpf = re.sub(r'\D', '', str(cpf)).zfill(11)
     if len(cpf) != 11:
@@ -47,7 +47,7 @@ def validar_cpf(cpf):
 # Função para validar email
 def validar_email(email):
     """
-    Valida o email.
+    Verifica se o e-mail está no formato correto usando expressões regulares
     """
     pattern = r'^[\w\.-]+@[\w\.-]+\.\w+$'
     return re.match(pattern, email) is not None
@@ -55,14 +55,14 @@ def validar_email(email):
 # Função para validar telefone
 def validar_telefone(telefone):
     """
-    Valida o telefone.
+    Verifica se o telefone está no formato correto (10 ou 11 dígitos)
     """
     return re.match(r'^\d{10,11}$', str(telefone)) is not None
 
 # Função para validar a data de nascimento e idade
 def validar_data_nascimento(data_nascimento):
     """
-    Valida a data de nascimento e verifica se a idade é maior ou igual a 18 anos.
+    Verifica se a data é válida e se a pessoa tem mais de 17 anos
     """
     try:
         data = datetime.strptime(data_nascimento, '%Y-%m-%d')
@@ -74,14 +74,14 @@ def validar_data_nascimento(data_nascimento):
 # Função para validar nome completo
 def validar_nome_completo(nome):
     """
-    Verifica se o nome é composto por pelo menos duas palavras.
+    Verifica se o nome é composto por pelo menos duas palavras
     """
     return len(nome.split()) >= 2
 
 # Função para validar CEP utilizando a API ViaCEP
 def validar_cep(cep):
     """
-    Valida o CEP utilizando a API ViaCEP.
+    Valida o CEP utilizando a API ViaCEP
     """
     cep = re.sub(r'\D', '', str(cep))
     try:
@@ -99,7 +99,7 @@ def validar_cep(cep):
 # Função para validar endereço utilizando os dados da API ViaCEP
 def validar_endereco(data, endereco, bairro, cidade, estado):
     """
-    Valida o endereço com base nos dados retornados pela API ViaCEP.
+    Valida o endereço com base nos dados retornados pela API ViaCEP
     """
     return (data.get('logradouro', '').upper() in endereco and
             data.get('bairro', '').upper() == bairro and

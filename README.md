@@ -110,10 +110,10 @@ A seguir, estão as funções de validação implementadas para cada um dos camp
 <summary>Validação do CPF</summary>
 
 ```python
-# Verifica se o CPF é válido usando dígitos verificadores
+# Função para validar CPF
 def validar_cpf(cpf):
     """
-    Valida o CPF.
+    Valida se o CPF é válido usando dígitos verificadores.
     """
     cpf = re.sub(r'\D', '', str(cpf)).zfill(11)
     if len(cpf) != 11:
@@ -133,10 +133,10 @@ def validar_cpf(cpf):
 <summary>Validação de e-mail</summary>
 
 ```python
-# Verifica se o e-mail está no formato correto usando expressões regulares
+# Função para validar email
 def validar_email(email):
     """
-    Valida o email.
+    Verifica se o e-mail está no formato correto usando expressões regulares
     """
     pattern = r'^[\w\.-]+@[\w\.-]+\.\w+$'
     return re.match(pattern, email) is not None
@@ -147,10 +147,10 @@ def validar_email(email):
 <summary>Validação de telefone</summary>
 
 ```python
-# Verifica se o telefone está no formato correto (10 ou 11 dígitos)
+# Função para validar telefone
 def validar_telefone(telefone):
     """
-    Valida o telefone.
+    Verifica se o telefone está no formato correto (10 ou 11 dígitos)
     """
     return re.match(r'^\d{10,11}$', str(telefone)) is not None
 ```
@@ -160,10 +160,10 @@ def validar_telefone(telefone):
 <summary>Validação de data de nascimento e idade</summary>
 
 ```python
-# Verifica se a data é válida e se a pessoa tem mais de 17 anos
+# Função para validar a data de nascimento e idade
 def validar_data_nascimento(data_nascimento):
     """
-    Valida a data de nascimento e verifica se a idade é maior ou igual a 18 anos.
+    Verifica se a data é válida e se a pessoa tem mais de 17 anos
     """
     try:
         data = datetime.strptime(data_nascimento, '%Y-%m-%d')
@@ -178,10 +178,10 @@ def validar_data_nascimento(data_nascimento):
 <summary>Validação de nome completo</summary>
 
 ```python
-# Verifica se o nome contém pelo menos duas palavras
+# Função para validar nome completo
 def validar_nome_completo(nome):
     """
-    Verifica se o nome é composto por pelo menos duas palavras.
+    Verifica se o nome é composto por pelo menos duas palavras
     """
     return len(nome.split()) >= 2
 ```
@@ -191,10 +191,10 @@ def validar_nome_completo(nome):
 <summary>Validação de CEP com a API ViaCEP</summary>
 
 ```python
-# Verifica se o CEP é válido e retorna os dados do endereço
+# Função para validar CEP utilizando a API ViaCEP
 def validar_cep(cep):
     """
-    Valida o CEP utilizando a API ViaCEP.
+    Valida o CEP utilizando a API ViaCEP
     """
     cep = re.sub(r'\D', '', str(cep))
     try:
@@ -215,10 +215,10 @@ def validar_cep(cep):
 <summary>Validação de endereço com a API ViaCEP</summary>
 
 ```python
-# Verifica se o endereço corresponde ao CEP fornecido
+# Função para validar endereço utilizando os dados da API ViaCEP
 def validar_endereco(data, endereco, bairro, cidade, estado):
     """
-    Valida o endereço com base nos dados retornados pela API ViaCEP.
+    Valida o endereço com base nos dados retornados pela API ViaCEP
     """
     return (data.get('logradouro', '').upper() in endereco and
             data.get('bairro', '').upper() == bairro and
@@ -312,7 +312,7 @@ def processar_dados():
                     "agrupador": row['Faculdade'],
                     "tipoPessoa": "FISICA",
                     "nome": row['NOME'],
-                    "cpf": row['CPF'],
+                                        "cpf": row['CPF'],
                     "dataNascimento": row['Data de Nascimento'],
                     "tipo": row['TIPO'],
                     "enderecos": [
@@ -434,6 +434,18 @@ Após a execução, os seguintes arquivos serão gerados:
 - `clientes_para_subir.json`: Contém os dados dos clientes válidos prontos para serem inseridos ou atualizados no sistema.
 
 <br>
+
+
+## 📜 Logs de Execução
+
+Durante a execução do script, são gerados logs que ajudam a monitorar o processo e identificar possíveis problemas. Abaixo está um exemplo dos logs gerados:
+
+<img src="/logs.png">
+
+Esses logs mostram o progresso das diferentes etapas do processo, desde a padronização dos dados até a geração dos arquivos de saída. Eles são úteis para garantir que o script esteja funcionando corretamente e para diagnosticar quaisquer problemas que possam surgir.
+
+<br>
+
 
 ## 🤝 Considerações Finais
 
